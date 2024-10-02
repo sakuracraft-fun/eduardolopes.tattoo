@@ -1,0 +1,124 @@
+body {
+    transition: margin-left .1s; /* Transição suave ao abrir/fechar o menu */
+}
+
+/* Estilização da navbar com cor terciária */
+.navbar {
+    background-color: white; /* Exemplo de cor terciária */
+}
+
+/* Estilização do texto */
+.custom-text {
+    font-size: 2rem;
+    color: #000; /* Cor do texto mais escura */
+}
+
+/* Estilização do item da navbar */
+.nav-item {
+    margin-right: 3px; /* Margem entre os itens da navbar */
+}
+
+/* Estilização do navbar */
+.navbar-nav {
+    display: flex; /* Garante que os itens da navbar sejam exibidos em linha */
+    flex-direction: row; /* Mantém os itens na mesma linha */
+}
+
+/* Estilização do elemento carousel-item */
+.carousel-item img {
+    height: 40; /* Mantém a proporção */
+    width: 50%; /* Usa toda a largura disponível */
+    object-fit: cover; /* Mantém a proporção da imagem */
+    border-radius: 15px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilização do carousel */
+.carousel {
+    max-width: 70%; /* Usa toda a largura disponível */
+    margin: 0 auto;
+}
+
+/* Estilização dos botões next/prev do carousel */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+}
+
+/* Estilização do texto do portfólio */
+.portfolio-text {
+    text-align: center;
+    margin: 40px 0; /* Espaçamento vertical */
+}
+
+/* Estilização da imagem no header */
+header img {
+    max-width: 100%; /* Imagem se ajusta à largura do contêiner */
+    height: auto; /* Mantém proporção */
+}
+
+/* Media Queries para diferentes tamanhos de tela */
+@media (max-width: 798px) {
+    .navbar-nav {
+        flex-direction: column; /* Coloca os itens da navbar em coluna em telas menores */
+        align-items: flex-start; /* Alinha os itens à esquerda */
+    }
+
+    .nav-item {
+        margin-bottom: 10px; /* Espaço entre os itens da navbar */
+    }
+
+    .custom-text {
+        font-size: 1.5rem; /* Reduz o tamanho da fonte em telas menores */
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar-collapse {
+        display: flex;
+        justify-content: center; /* Centraliza os itens da navbar */
+    }
+
+   
+    
+
+    .navbar-nav .nav-link {
+        padding: 8px 12px;
+    }
+
+    .portfolio-text {
+        padding: 0 15px; /* Adiciona padding nas laterais */
+    }
+}
+
+/* Estilo do botão toggler */
+.navbar-toggler {
+    border-color: white; /* Cor da borda do botão */
+}
+
+/* Ícones do botão toggler */
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='black' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"); /* Cor do ícone */
+}
+
+/* Melhorias na navbar colapsada */
+.navbar-collapse {
+    background-color: var(--bs-gray-300); /* Cor de fundo do menu colapsado */
+    border-radius: 8px; /* Cantos arredondados */
+    padding: 15px 0; /* Espaçamento vertical */
+    transition: max-height 10s ease-in-out; /* Transição suave para abertura e fechamento */
+    flex-direction: row; /* Mantém a navbar colapsada em linha */
+}
+
+/* Estilo dos itens da navbar no modo colapsado */
+.navbar-nav .nav-item {
+    margin-bottom: 10px; /* Espaço entre os itens */
+}
+
+/* Estilo do texto dos links da navbar */
+.navbar-nav .nav-link {
+    font-weight: bold; /* Texto em negrito */
+}
+
+
