@@ -1,139 +1,207 @@
+/* Geral */
 body {
-    transition: margin-left .1s; /* Transição suave ao abrir/fechar o menu */
-    padding-top: 80px;
+    transition: margin-left 0.1s;
+    padding-top: 100px;
 }
 
-/* Estilização da navbar com cor terciária */
+/* Header fixo */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background-color: #f8f9fa;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+}
+
+/* Imagem do header */
+header img {
+    max-width: 100%;
+    height: auto;
+}
+@media (max-width: 768px) {
+    header img {
+        width: 80px;
+        margin-right: 10px;
+    }
+}
+
+/* Navbar geral */
 .navbar {
-    background-color: white; /* Exemplo de cor terciária */
+    background-color: white;
+}
+.navbar-nav {
+    display: flex;
+    flex-direction: row;
+}
+.nav-item {
+    margin-right: 20px;
+}
+@media (min-width: 768px) {
+    .navbar-nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .nav-item {
+        margin-bottom: 10px;
+    }
+    .navbar-nav .nav-link {
+        padding: 0 12px;
+    }
 }
 
-/* Estilização do texto */
+/* Estilo para mobile: Menu colapsado com fundo branco sólido e botão de fechar */
+@media (max-width: 768px) {
+    
+    .navbar-collapse {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: #fff; /* Fundo branco sólido */
+        z-index: 1050;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        transition: max-height 0.5s ease;
+    }
+
+    .navbar-nav {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+    }
+
+    .nav-item {
+        margin: 15px 0;
+    }
+
+    .navbar-nav .nav-link {
+        color: #000;
+        font-size: 1.5rem;
+        text-transform: uppercase;
+    }
+
+    /* Estilo do botão de fechar */
+    .btn-close-menu {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: none;
+        border: none;
+        font-size: 2rem;
+        color: #000; /* Cor preta */
+        cursor: pointer;
+    }
+
+    .btn-close-menu:hover {
+        color: #ff0000; /* Muda a cor para vermelho ao passar o mouse */
+    }
+
+    /* Estilo do botão hamburger (sempre visível) */
+    .navbar-toggler {
+        display: block; /* Mantém o botão hamburger visível */
+        position: absolute;
+        right: 20px;
+        z-index: 1100; /* Garante que o hamburger fique acima dos outros elementos */
+    }
+
+    /* Animação de rotação no botão hamburger */
+    .navbar-toggler.collapsed .navbar-toggler-icon {
+        transform: rotate(90deg);
+        transition: transform 0.5s ease;
+    }
+
+    .custom-text{
+        font-size: 10rem;
+    }
+
+    header img {
+        width: 80px;
+        margin-right: 10px;
+    }
+}
+
+
+/* Botão hamburger (visível quando o menu está fechado) */
+.navbar-toggler {
+    border-color: white;
+}
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='black' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+/* Estilização do texto geral */
 .custom-text {
     font-size: 2rem;
-    color: #000; /* Cor do texto mais escura */
+    color: #000;
+    letter-spacing: 0.05em;
 }
-
-/* Estilização do item da navbar */
-.nav-item {
-    margin-right: 3px; /* Margem entre os itens da navbar */
-}
-
-/* Estilização do navbar */
-.navbar-nav {
-    display: flex; /* Garante que os itens da navbar sejam exibidos em linha */
-    flex-direction: row; /* Mantém os itens na mesma linha */
-}
-
-/* Estilização do elemento carousel-item */
-.carousel-item img {
-    height: 40; /* Mantém a proporção */
-    width: 50%; /* Usa toda a largura disponível */
-    object-fit: cover; /* Mantém a proporção da imagem */
-    border-radius: 15px;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
-}
-
-/* Estilização do carousel */
+/* Carousel */
 .carousel {
-    max-width: 50%; /* Usa toda a largura disponível */
+    max-width: 50%;
     margin: 0 auto;
 }
 
-/* Estilização dos botões next/prev do carousel */
+.carousel-item img {
+    width: 100%; /* Para garantir que a largura ocupe toda a área do carousel */
+    height: 300px; /* Altura fixa */
+    object-fit: cover; /* Garante que as imagens se ajustem mantendo a proporção */
+    border-radius: 15px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.5s ease-in-out;
+}
+
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
     background-color: rgba(0, 0, 0, 0.5);
     border-radius: 50%;
 }
 
-/* Estilização do texto do portfólio */
+/* Texto do portfólio */
 .portfolio-text {
     text-align: start;
-    margin: 40px 0; /* Espaçamento vertical */
+    margin: 40px 0;
 }
 
-/* Estilização da imagem no header */
-header img {
-    max-width: 100%; /* Imagem se ajusta à largura do contêiner */
-    height: auto; /* Mantém proporção */
+/* Botões de ações */
+.btn-agenda {
+    color: #00e6ff;
+    font-size: 1.5rem;
+    text-align: center;
+    width: 100%;
+    margin-top: 15px;
+    border: none;
+    background: none;
+    text-decoration: underline;
+}
+.btn-agenda:hover {
+    color: #00c853;
+}
+.btn-whatsapp {
+    background-color: #00e676;
+    border: none;
+    text-align: center;
+    width: 100%;
+    font-size: 1.5rem;
+    margin-top: 15px;
+}
+.btn-whatsapp:hover {
+    background-color: #00c853;
 }
 
-/* Media Queries para diferentes tamanhos de tela */
-@media (max-width: 769px) {
-    .navbar-nav {
-        flex-direction: column; /* Coloca os itens da navbar em coluna em telas menores */
-        align-items: flex-start; /* Alinha os itens à esquerda */
-    }
-
-    .nav-item {
-        margin-bottom: 10px; /* Espaço entre os itens da navbar */
-    }
-
-    .custom-text {
-        font-size: 1.5rem; /* Reduz o tamanho da fonte em telas menores */
-    }
-}
-
-@media (max-width: 768px) {
-    .navbar-collapse {
-        display: flex;
-        justify-content: center; /* Centraliza os itens da navbar */
-    }
-
-    .navbar-nav .nav-link {
-        padding: 8px 12px;
-    }
-
-    .portfolio-text {
-        padding: 0 15px; /* Adiciona padding nas laterais */
-    }
-}
-
-/* Estilo do botão toggler */
-.navbar-toggler {
-    border-color: white; /* Cor da borda do botão */
-}
-
-/* Ícones do botão toggler */
-.navbar-toggler-icon {
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='black' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"); /* Cor do ícone */
-}
-
-/* Melhorias na navbar colapsada */
-.navbar-collapse {
-    background-color: var(--bs-gray-300); /* Cor de fundo do menu colapsado */
-    border-radius: 8px; /* Cantos arredondados */
-    padding: 15px 0; /* Espaçamento vertical */
-    transition: max-height 10s ease-in-out; /* Transição suave para abertura e fechamento */
-    flex-direction: row; /* Mantém a navbar colapsada em linha */
-}
-
-/* Estilo dos itens da navbar no modo colapsado */
-.navbar-nav .nav-item {
-    margin-bottom: 20px; /* Espaço entre os itens */
-}
-
-/* Estilo do texto dos links da navbar */
-.navbar-nav .nav-link {
-    font-weight: bold; /* Texto em negrito */
-}
-#bg-text-carousel{
+/* Sombra para textos no carousel */
+#bg-text-carousel {
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
     margin: 0 auto;
-    background-color: white;
-}
-
-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 80px; /* Ajuste conforme o tamanho do seu header */
-    background-color: #f8f9fa; /* Cor de fundo sólida */
-    z-index: 1000; /* Certificar que o header fique acima de todo o conteúdo */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra opcional */
-    display: flex;
-    align-items: center; /* Centraliza o conteúdo verticalmente */
-    padding: 0 20px; /* Espaçamento interno opcional */
 }
