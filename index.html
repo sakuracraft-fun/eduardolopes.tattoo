@@ -17,7 +17,7 @@
     <header>
         <div class="container-fluid d-flex align-items-center justify-content-center py-3">
             <img src="logo2.png" alt="logo do estúdio" class="img-fluid" id="logo" style="max-width: 80px;">
-            <span class="ms-4 fw-bold custom-text" style="font-family: 'Playfair Display', sans-serif; font-size: 3rem; color: black;">Lopes Tattoo</span>
+            <span class="ms-4 fw-bold custom-text header-title" style="font-family: 'Playfair Display', sans-serif; font-size: 2rem; color: black;">Lopes Tattoo</span>
         </div>
         <nav class="navbar navbar-expand-md mt-3">
             <div class="container">
@@ -36,8 +36,12 @@
                             <a class="nav-link" href="#Sobre" style="color: black;">Sobre</a>
                         </li>
                     </ul>
-                    <button class="btn-close-menu" onclick="$('.navbar-collapse').collapse('hide');">×</button>
                 </div>
+
+                <!-- Botão "X" para fechar -->
+                <button class="btn-close-menu" id="close-menu">
+                    <img src="close.png" alt="Fechar menu">
+                </button>
             </div>
         </nav>
     </header>
@@ -197,5 +201,42 @@
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const navbarCollapse = document.getElementById('navbarNav');
+        const closeMenuButton = document.getElementById('close-menu');
+        const navbarToggler = document.querySelector('.navbar-toggler');
+    
+        // Inicialmente, o botão "X" está escondido e o botão hamburger é visível
+        closeMenuButton.classList.add('d-none'); // Esconde o "X" no início
+        navbarToggler.classList.remove('d-none'); // Garante que o hamburger esteja visível
+    
+        // Fecha o menu ao clicar no botão "X"
+        if (closeMenuButton) {
+            closeMenuButton.addEventListener('click', () => {
+                navbarCollapse.classList.remove('show'); // Fecha o menu
+                closeMenuButton.classList.add('d-none'); // Esconde o "X"
+                navbarToggler.classList.remove('d-none'); // Mostra o hamburger
+            });
+        }
+    
+        // Alterna o menu ao clicar no botão Hamburger
+        if (navbarToggler) {
+            navbarToggler.addEventListener('click', () => {
+                navbarCollapse.classList.toggle('show'); // Alterna a visibilidade do menu
+                if (navbarCollapse.classList.contains('show')) {
+                    // Quando o menu é aberto, esconde o hamburger e mostra o "X"
+                    closeMenuButton.classList.remove('d-none');
+                    navbarToggler.classList.add('d-none');
+                } else {
+                    // Quando o menu é fechado, esconde o "X" e mostra o hamburger
+                    closeMenuButton.classList.add('d-none');
+                    navbarToggler.classList.remove('d-none');
+                }
+            });
+        }
+    });
+    </script>
+    
 </body>
 </html>
